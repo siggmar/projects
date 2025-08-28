@@ -61,10 +61,18 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+#include <X11/XF86keysym.h>
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ 0, XF86XK_MonBrightnessUp,    		   spawn,          SHCMD("brightnessctl set 10%+") },
+    { 0, XF86XK_MonBrightnessDown,             spawn,          SHCMD("brightnessctl set 10%-")  },
+    { 0, XF86XK_AudioMute,                     spawn,          SHCMD("amixer set Master toggle") },
+    { 0, XF86XK_AudioMicMute,                  spawn,          SHCMD("amixer set Capture toggle") },
+    { 0, XF86XK_AudioRaiseVolume,              spawn,          SHCMD("amixer set Master 5%+") },
+    { 0, XF86XK_AudioLowerVolume,              spawn,          SHCMD("amixer set Master 5%-") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
