@@ -1,0 +1,17 @@
+[
+  {
+    "arguments": [
+      "/usr/sbin/gcc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-std=c11",
+      "-o",
+      "todo",
+      "main.c"
+    ],
+    "directory": "/home/jay/projects/todomanager",
+    "file": "/home/jay/projects/todomanager/main.c",
+    "output": "/home/jay/projects/todomanager/todo"
+  }
+]

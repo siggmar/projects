@@ -1,0 +1,17 @@
+[
+  {
+    "arguments": [
+      "/usr/sbin/gcc",
+      "-Wall",
+      "-std=c99",
+      "-O2",
+      "-c",
+      "-o",
+      "main.o",
+      "main.c"
+    ],
+    "directory": "/home/jay/projects/games/qubes",
+    "file": "/home/jay/projects/games/qubes/main.c",
+    "output": "/home/jay/projects/games/qubes/main.o"
+  }
+]
