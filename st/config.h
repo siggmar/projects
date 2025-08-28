@@ -5,9 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "FiraMonoNerdFont-Bold:pixelsize=14:antialias=true:autohint=true";
 static int borderpx = 2;
-
 /*
  * What program is execed by st depends of these precedence rules:
  * 1: program passed with -e
@@ -91,39 +90,37 @@ char *termname = "st-256color";
  *
  *	stty tabs
  */
-unsigned int tabspaces = 8;
+unsigned int tabspaces = 4;
 
 /* Terminal colors (16 first used in escape sequence) */
+
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+    /* 8 normal colors */
+    [0] = "#2d2d2d",
+    [1] = "#9d5b61",
+    [2] = "#838d69",
+    [3] = "#b38d6a",
+    [4] = "#606d84",
+    [5] = "#766577",
+    [6] = "#808fa0",
+    [7] = "#9c9a9a",
+    /* 8 bright colors */
+    [8] = "#141414",
+    [9] = "#9d5b61",
+    [10] = "#838d69",
+    [11] = "#b38d6a",
+    [12] = "#606d84",
+    [13] = "#766577",
+    [14] = "#808fa0",
+    [15] = "#9c9a9a",
+    [255] = 0,
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
-
-	[255] = 0,
-
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"gray90", /* default foreground colour */
-	"black", /* default background colour */
+    /* more colors can be added after 255 to use with DefaultXX */
+    [256] = "#add8e6",
+    [257] = "#555555",
+    [258] = "#a7a7a7",
+    [259] = "#141414",
 };
-
 
 /*
  * Default colors (colorname index)
@@ -201,6 +198,9 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+    { ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+
 };
 
 /*
